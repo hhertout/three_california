@@ -1,7 +1,7 @@
 import React from 'react';
-import OrganicPlane from '@feature/organicPlane/OrganicPlane.tsx';
+import OrganicPlane from '../features/organicPlane/OrganicPlane.tsx';
 import { ScrollControls } from '@react-three/drei';
-import Car from '@feature/car/Car.tsx';
+import Car from '../features/car/Car.tsx';
 import { useFrame } from '@react-three/fiber';
 import { easing } from 'maath';
 

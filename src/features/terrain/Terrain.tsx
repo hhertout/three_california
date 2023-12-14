@@ -1,8 +1,8 @@
 import React, { useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import fragmentShaders from '@feature/terrain/fragmentShaders.ts';
-import vertexShaders from '@feature/terrain/vertexShaders.ts';
+import fragmentShaders from '../terrain/fragmentShaders.ts';
+import vertexShaders from '../terrain/vertexShaders.ts';
 
 type Props = {
   position: [number, number, number];

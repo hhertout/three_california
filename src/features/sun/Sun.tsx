@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
 import { Mesh } from 'three';
-import fragmentShaders from "@feature/sun/fragmentSharders.ts";
-import vertexShaders from "@feature/sun/vertexSharder.ts";
+import fragmentShaders from '../sun/fragmentSharders.ts';
+import vertexShaders from '../sun/vertexSharder.ts';
 
 type Props = {
   position: [number, number, number];

@@ -2,8 +2,8 @@ import React, { useMemo, useRef } from 'react';
 import { useFrame, Vector3 } from '@react-three/fiber';
 import { Points } from 'three';
 import * as THREE from 'three';
-import fragmentShaders from '@feature/shootingStars/fragmentSharders.ts';
-import vertexShaders from '@feature/shootingStars/vertexSharder.ts';
+import fragmentShaders from '../shootingStars/fragmentSharders.ts';
+import vertexShaders from '../shootingStars/vertexSharder.ts';
 
 type ShootingStarsProps = {
   count: number;
@@ -14,12 +14,12 @@ type ShootingStarsProps = {
 };
 
 const ShootingStars = ({
-                         count,
-                         size,
-                         position,
-                         cameraPosition,
-                         color,
-                       }: ShootingStarsProps) => {
+  count,
+  size,
+  position,
+  cameraPosition,
+  color,
+}: ShootingStarsProps) => {
   const pointsRef = useRef<Points>(null);
   const particlesPosition = useMemo(() => {
     const position = new Float32Array(count * 3);
@@ -50,7 +50,7 @@ const ShootingStars = ({
     <points ref={pointsRef} position={position}>
       <bufferGeometry>
         <bufferAttribute
-          attach='attributes-position'
+          attach="attributes-position"
           count={particlesPosition.length / 3}
           array={particlesPosition}
           itemSize={3}

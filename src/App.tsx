@@ -7,6 +7,7 @@ import Effects from '@components/Effects.tsx';
 import RouterProvider from './router/RouterProvider.tsx';
 import { Route } from './router/router.d';
 import Scene from '@components/Scene.tsx';
+import HtmlApp from './html/HtmlApp.tsx';
 
 export enum ROUTES {
   HOME = '/',
@@ -32,21 +33,21 @@ function App() {
   const { toggleEffect } = useDevContext();
   return (
     <RouterProvider routes={routes}>
-      <div id='canvas-container'>
-        <h1 className={'main-title'}>Welcome to California</h1>
-        <DevBar />
+      <div id="canvas-container">
+        {import.meta.env.VITE_APP_ENV === 'dev' ? <DevBar /> : null}
+
+        <HtmlApp />
         <Canvas
           camera={{ position: [0, 0, 0], fov: 75 }}
           gl={{ alpha: true, antialias: false }}
           dpr={[1, 2]}
         >
-
           <Scene />
-
-          <StatsGl />
-          {/*<OrbitControls />*/}
-
           {toggleEffect && <Effects />}
+
+          {/* ==== Dev stuff ==== */}
+          {/*<OrbitControls />*/}
+          {import.meta.env.VITE_APP_ENV === 'dev' ? <StatsGl /> : null}
         </Canvas>
       </div>
     </RouterProvider>
@@ -54,5 +55,3 @@ function App() {
 }
 
 export default App;
-
-

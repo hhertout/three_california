@@ -2,8 +2,8 @@ import React, { useMemo, useRef } from 'react';
 import { useFrame, Vector3 } from '@react-three/fiber';
 import { Color, Mesh } from 'three';
 import * as THREE from 'three';
-import vertexShaders from '@feature/organicPlane/vertexSharders.ts';
-import fragmentShaders from '@feature/organicPlane/fragmentShaders.ts';
+import vertexShaders from '../organicPlane/vertexSharders.ts';
+import fragmentShaders from '../organicPlane/fragmentShaders.ts';
 
 type Props = {
   position: Vector3;
