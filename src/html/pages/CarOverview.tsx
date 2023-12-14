@@ -1,5 +1,5 @@
 import React from 'react';
-import './CarOverview.css';
+import './carOverview.css';
 
 const CarOverview = () => {
   return <div></div>;
