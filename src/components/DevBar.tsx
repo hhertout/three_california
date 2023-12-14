@@ -5,23 +5,27 @@ const DevBar = () => {
   const { toggleEffect, handleToggleEffectChange } = useDevContext();
   const navigate = useNavigate();
   return (
-      <div className={'nav-btn'}>
-        <button
-          onClick={handleToggleEffectChange}
-        >
-          PPE {toggleEffect ? '(on)' : '(off)'}
-        </button>
-        <button onClick={() => {
+    <div className={'dev-nav-btn'}>
+      <button onClick={handleToggleEffectChange} className={'dev-btn'}>
+        PPE {toggleEffect ? '(on)' : '(off)'}
+      </button>
+      <button
+        onClick={() => {
           navigate('/');
-        }} className={'btn-reset'}>
+        }}
+        className={'dev-btn'}
+      >
         Home
       </button>
-      <button onClick={() => {
+      <button
+        onClick={() => {
           navigate('/car-overview');
-      }} className={'btn'}>
-        View 1
+        }}
+        className={'dev-btn'}
+      >
+        Car Overview
       </button>
-      </div>
+    </div>
   );
 };
 

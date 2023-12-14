@@ -5,25 +5,19 @@
   src: url('/assets/fonts/California.ttf') format('truetype');
 }
 
-h1 {
-  font-family: California, sans-serif;
+@font-face {
+  font-family: 'OSD_MONO';
+  src: url('/assets/fonts/VCR_OSD_MONO.ttf') format('truetype');
 }
 
-.main-title {
-  font-family: California, sans-serif;
-  opacity: 0.8;
-  position: absolute;
-  font-weight: bold;
-  top: 15%;
-  left: 50%;
-  width: 100%;
-  text-align: center;
-  transform: translate(-50%, -50%);
-  z-index: 4;
-  color: #f3d9f3;
-  text-shadow: 0 0 10px #ff00fe, 0 0 20px #ff00fe, 0 0 30px #ff00fe, 0 0 40px #ff00fe, 0 0 70px #ff00fe, 0 0 80px #ff00fe, 0 0 100px #ff00fe;
+@font-face {
+  font-family: 'Alien-Encounters';
+  src: url('/assets/fonts/Alien-Encounters.ttf') format('truetype');
+}
 
-  font-size: calc(3rem + 9vw);
+@font-face {
+  font-family: 'Rocket-Rinder';
+  src: url('/assets/fonts/Rocket_Rinder.otf') format('truetype');
 }
 
 *,
@@ -45,10 +39,10 @@ html {
 body {
   background: #ff00fe;
   background: linear-gradient(
-          0deg,
-          #ff00fb 0%,
-          #6b006b 50%,
-          rgba(11, 10, 15, 1) 100%
+    0deg,
+    #ff00fb 0%,
+    #6b006b 50%,
+    rgba(11, 10, 15, 1) 100%
   );
 }
 
@@ -57,20 +51,12 @@ body {
   width: 100vw;
 }
 
-h1 {
-  font-family: 'Yeseva One', serif;
-  font-size: clamp(1rem, 7vw, 7rem);
-}
-
-.btn {
+/* ==== Dev stuff ==== */
+.dev-btn {
   padding: 10px;
 }
 
-.btn-reset {
-  padding: 10px;
-}
-
-.nav-btn {
+.dev-nav-btn {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -80,4 +66,46 @@ h1 {
   padding: 0.5rem;
 
   z-index: 3;
+}
+
+.font-neon {
+  color: #f3d9f3;
+  text-shadow:
+    0 0 10px #ff00fe,
+    0 0 20px #ff00fe,
+    0 0 30px #ff00fe,
+    0 0 40px #ff00fe,
+    0 0 70px #ff00fe,
+    0 0 80px #ff00fe,
+    0 0 100px #ff00fe;
+}
+
+.zi-3 {
+  z-index: 3;
+}
+
+.zi-4 {
+  z-index: 4;
+}
+
+.zi-5 {
+  z-index: 5;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

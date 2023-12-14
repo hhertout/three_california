@@ -1,9 +1,9 @@
-import Car from '@feature/car/Car.tsx';
-import Road from '@feature/road/Road.tsx';
-import Terrain from '@feature/terrain/Terrain.tsx';
-import Sun from '@feature/sun/Sun.tsx';
-import Buildings from '@feature/buildings/Buildings.tsx';
-import ShootingStars from '@feature/shootingStars/ShootingStars.tsx';
+import Car from '../features/car/Car.tsx';
+import Road from '../features/road/Road.tsx';
+import Terrain from '../features/terrain/Terrain.tsx';
+import Sun from '../features/sun/Sun.tsx';
+import Buildings from '../features/buildings/Buildings.tsx';
+import ShootingStars from '../features/shootingStars/ShootingStars.tsx';
 import CameraRig from '@components/CameraRig.tsx';
 import { useFrame } from '@react-three/fiber';
 import { easing } from 'maath';
