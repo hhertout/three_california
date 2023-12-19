@@ -8,7 +8,7 @@ const Home = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
 
   const handleBtnClick = () => {
-    const duration = 300;
+    const duration = 400;
     if (!btnRef.current) return;
     btnRef.current.style.animation = `fade-out ${duration}ms ease-in forwards`;
     if (!titleRef.current) return;
@@ -20,9 +20,10 @@ const Home = () => {
 
   useEffect(() => {
     if (!btnRef.current) return;
-    btnRef.current.style.animation = 'fade-in 2s ease-in 1s forwards';
+    btnRef.current.style.animation = 'fade-in 1s ease-in-out 1s forwards';
     if (!titleRef.current) return;
-    titleRef.current.style.animation = 'fade-in-neon 1.5s ease-in 0s forwards';
+    titleRef.current.style.animation =
+      'fade-in-neon 1s ease-in-out 0s forwards';
   }, []);
   return (
     <>
@@ -31,7 +32,7 @@ const Home = () => {
       </h1>
       <button
         ref={btnRef}
-        className={'enter-btn zi-3'}
+        className={'main-btn enter-btn zi-3'}
         onClick={handleBtnClick}
       >
         Discover

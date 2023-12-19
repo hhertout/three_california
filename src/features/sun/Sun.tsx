@@ -10,6 +10,7 @@ type Props = {
   size: [number, number];
 };
 const Sun = ({ position, size }: Props) => {
+  const lightRef = useRef<THREE.PointLight>(null);
   const sunRef = useRef<Mesh>(null);
   const uniforms = {
     uSize: { value: size[0] },
@@ -24,6 +25,7 @@ const Sun = ({ position, size }: Props) => {
   return (
     <>
       <pointLight
+        ref={lightRef}
         color={'#ff7300'}
         position={[0, 4, -30]}
         intensity={500}

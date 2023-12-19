@@ -20,9 +20,9 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@components/*": ["./src/components/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@feature/*": ["./src/feature/*"],
+      "@app/*": ["./src/app/*"],
+      "@scene/*": ["./src/scene/*"],
+      "@feature/*": ["./src/feature/*"]
     }
   },
   "include": ["src", "**/*.ts", "**/*.tsx"],

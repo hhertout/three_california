@@ -1,0 +1,38 @@
+:root {
+  --btn-color: #fff;
+}
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  gap: 4rem;
+}
+
+.message {
+  font-family: California, sans-serif;
+  font-size: 8rem;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+
+.return-home-btn {
+  overflow: hidden;
+  cursor: pointer;
+
+  transition: 0.1s ease-out;
+}
+
+.return-home-btn:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 5px 5px 0 0 var(--btn-color);
+}
+
+.return-home-btn:active {
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 0 var(--btn-color);
+}

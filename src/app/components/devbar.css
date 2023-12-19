@@ -1,0 +1,16 @@
+/* ==== Dev stuff ==== */
+.dev-btn {
+  padding: 10px;
+}
+
+.dev-nav-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  gap: 0.8rem;
+  padding: 0.5rem;
+
+  z-index: 3;
+}

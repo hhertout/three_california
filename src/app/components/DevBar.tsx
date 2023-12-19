@@ -1,5 +1,6 @@
-import { useDevContext } from '../context/DevContext.tsx';
-import { useNavigate } from '../router/hooks.tsx';
+import { useDevContext } from '../../context/DevContext.tsx';
+import { useNavigate } from '../../router/hooks.tsx';
+import './devbar.css';
 
 const DevBar = () => {
   const { toggleEffect, handleToggleEffectChange } = useDevContext();
