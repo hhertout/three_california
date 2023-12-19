@@ -47,23 +47,25 @@ const ShootingStars = ({
   });
 
   return (
-    <points ref={pointsRef} position={position}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={particlesPosition.length / 3}
-          array={particlesPosition}
-          itemSize={3}
+    <>
+      <points ref={pointsRef} position={position}>
+        <bufferGeometry>
+          <bufferAttribute
+            attach="attributes-position"
+            count={particlesPosition.length / 3}
+            array={particlesPosition}
+            itemSize={3}
+          />
+        </bufferGeometry>
+        <shaderMaterial
+          depthWrite={false}
+          uniforms={uniforms}
+          blending={THREE.AdditiveBlending}
+          fragmentShader={fragmentShaders}
+          vertexShader={vertexShaders}
         />
-      </bufferGeometry>
-      <shaderMaterial
-        depthWrite={false}
-        uniforms={uniforms}
-        blending={THREE.AdditiveBlending}
-        fragmentShader={fragmentShaders}
-        vertexShader={vertexShaders}
-      />
-    </points>
+      </points>
+    </>
   );
 };
 

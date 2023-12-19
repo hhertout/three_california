@@ -1,13 +1,11 @@
 import { IRouter, Route } from './router.d';
 
 class Router implements IRouter {
-
   public navigate(path: string): void {
     window.location.hash = `#/${path.slice(1)}`;
   }
 
   public getHashName(): string {
-
     return window.location.hash.slice(1);
   }
 
@@ -20,17 +18,21 @@ class Router implements IRouter {
 
     routes.forEach((route: Route) => {
       if (currentHash === route.path) {
-        route.effect();
+        route.effect ? route.effect() : null;
       }
     });
 
-    window.addEventListener('hashchange', () => {
-      routes.forEach((route: Route) => {
-        if (this.getHashName() === route.path) {
-          route.effect();
-        }
-      });
-    }, false);
+    window.addEventListener(
+      'hashchange',
+      () => {
+        routes.forEach((route: Route) => {
+          if (this.getHashName() === route.path) {
+            route.effect ? route.effect() : null;
+          }
+        });
+      },
+      false
+    );
   }
 }
 

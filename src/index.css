@@ -51,23 +51,6 @@ body {
   width: 100vw;
 }
 
-/* ==== Dev stuff ==== */
-.dev-btn {
-  padding: 10px;
-}
-
-.dev-nav-btn {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-
-  display: flex;
-  gap: 0.8rem;
-  padding: 0.5rem;
-
-  z-index: 3;
-}
-
 .font-neon {
   color: #f3d9f3;
   text-shadow:
@@ -90,6 +73,22 @@ body {
 
 .zi-5 {
   z-index: 5;
+}
+
+.main-btn {
+  border: 2px solid var(--btn-color);
+  border-radius: 5px;
+
+  padding-inline: calc(2rem + 3vw);
+  padding-block: calc(0.5rem + 0.8vw);
+
+  background-color: transparent;
+  color: var(--btn-color);
+  font-size: 20px;
+  font-family: 'Alien-Encounters', sans-serif;
+  font-weight: normal;
+  letter-spacing: 6px;
+  text-transform: uppercase;
 }
 
 @keyframes fade-in {

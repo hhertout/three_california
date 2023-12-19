@@ -1,0 +1,38 @@
+.social-bar-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  opacity: 0.8;
+  z-index: 4;
+  transition: 0.2s ease-in-out;
+}
+
+.social-bar-container:hover {
+  opacity: 1;
+}
+
+.scroll-info {
+  position: absolute;
+  top: 92%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 5;
+  color: #f1f1f1;
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+  font-family: 'OSD_MONO', serif;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.scroll-info-indicator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

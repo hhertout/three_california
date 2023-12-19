@@ -22,19 +22,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  border: 2px solid var(--btn-color);
-  border-radius: 5px;
-
-  padding-inline: calc(2rem + 3vw);
-  padding-block: calc(0.5rem + 0.8vw);
-
-  background-color: transparent;
-  color: var(--btn-color);
-  font-size: 20px;
-  font-family: 'Alien-Encounters', sans-serif;
-  font-weight: normal;
-  letter-spacing: 6px;
-  text-transform: uppercase;
   opacity: 0;
 
   overflow: hidden;
@@ -58,13 +45,13 @@
     opacity: 0;
   }
   100% {
-    opacity: 0.8;
+    opacity: 0.9;
   }
 }
 
 @keyframes fade-out-neon {
   0% {
-    opacity: 0.8;
+    opacity: 0.9;
   }
   100% {
     opacity: 0;

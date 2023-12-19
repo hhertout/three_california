@@ -2,13 +2,14 @@ import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import React from 'react';
 
 function Effects() {
-  const location = window.location
   return (
     <EffectComposer>
+      {/*<SMAA />*/}
       <Bloom
-        luminanceThreshold={0.3}
+        luminanceThreshold={0.4}
         intensity={0.6}
-        mipmapBlur={location.pathname === '/' || location.pathname === '/home'}
+        kernelSize={0.3}
+        mipmapBlur={true}
       />
     </EffectComposer>
   );

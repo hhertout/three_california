@@ -12,7 +12,7 @@ function CameraRig() {
         15,
       ],
       0.5,
-      delta,
+      delta
     );
     state.camera.lookAt(0, 0, 0);
   });
