@@ -3,7 +3,7 @@
   top: 0;
   right: 0;
   padding: 20px;
-  opacity: 0.8;
+  opacity: 0.6;
   z-index: 4;
   transition: 0.2s ease-in-out;
 }
@@ -18,7 +18,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  z-index: 5;
+  z-index: 0;
   color: #f1f1f1;
   letter-spacing: 2px;
   font-size: 1.2rem;
