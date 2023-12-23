@@ -5,8 +5,10 @@ const Loader = (): JSX.Element => {
   const { progress } = useProgress();
   return (
     <>
-      <color attach={'background'} args={[0, 0, 0]} />
-      <Html center>Chargement : {progress} %</Html>
+      <color attach={'background'} />
+      <Html center color={'#F1F1F1'}>
+        Loading : {progress} %
+      </Html>
     </>
   );
 };
