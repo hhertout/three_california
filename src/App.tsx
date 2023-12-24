@@ -7,10 +7,12 @@ import SceneHome from './scene/pages/Home.tsx';
 import Home from './app/pages/Home.tsx';
 import CarOverview from './app/pages/CarOverview.tsx';
 import SceneCarOverview from './scene/pages/CarOverview.tsx';
+import AboutMe from '@app/pages/AboutMe.tsx';
 
 export enum ROUTES {
   HOME = '/',
   CAR_OVERVIEW = '/car-overview',
+  ABOUT_ME = '/about-me',
 }
 
 const routes: Array<Route> = [
@@ -23,6 +25,11 @@ const routes: Array<Route> = [
     path: ROUTES.CAR_OVERVIEW,
     sceneElement: <SceneCarOverview />,
     element: <CarOverview />,
+  },
+  {
+    path: ROUTES.ABOUT_ME,
+    element: <AboutMe />,
+    sceneElement: <></>,
   },
 ];
 

@@ -1,18 +1,23 @@
 import React, { useEffect, useRef } from 'react';
 import './home.css';
 import { useNavigate } from '../../router/hooks.tsx';
+import { useAnimation, useNeonAnimation } from '../../hooks/useAnimation.tsx';
 
 const Home = () => {
   const navigate = useNavigate();
   const btnRef = useRef<HTMLButtonElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
+  const { animate } = useAnimation();
+  const { animate: neonAnimate } = useNeonAnimation();
+
   const handleBtnClick = () => {
-    const duration = 400;
+    const duration = 200;
     if (!btnRef.current) return;
-    btnRef.current.style.animation = `fade-out ${duration}ms ease-in forwards`;
+    animate({ animation: 'fade-out', element: btnRef.current, duration });
+
     if (!titleRef.current) return;
-    titleRef.current.style.animation = `fade-out-neon ${duration}ms ease-in forwards`;
+    neonAnimate({ animation: 'fade-out', element: titleRef.current, duration });
     setTimeout(() => {
       navigate('/car-overview');
     }, duration);
@@ -20,11 +25,21 @@ const Home = () => {
 
   useEffect(() => {
     if (!btnRef.current) return;
-    btnRef.current.style.animation = 'fade-in 1s ease-in-out 1s forwards';
+    animate({
+      animation: 'fade-in',
+      element: btnRef.current,
+      duration: 1000,
+      delay: 1000,
+    });
     if (!titleRef.current) return;
-    titleRef.current.style.animation =
-      'fade-in-neon 1s ease-in-out 0s forwards';
+    neonAnimate({
+      animation: 'fade-in',
+      element: titleRef.current,
+      duration: 2000,
+      delay: 500,
+    });
   }, []);
+
   return (
     <>
       <h1 ref={titleRef} className={'main-title font-neon zi-3'}>

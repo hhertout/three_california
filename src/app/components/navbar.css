@@ -1,0 +1,87 @@
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100vw;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  z-index: 2;
+}
+
+.nav-btn {
+  height: 100%;
+
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.2rem;
+}
+
+.modal-menu-open {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+
+  z-index: 3;
+
+  background-color: #f1f1f1;
+  padding: 3rem;
+
+  flex-direction: column;
+  align-items: flex-end;
+
+  gap: 3rem;
+
+  opacity: 0;
+}
+
+.modal-menu-open h1 {
+  font-size: clamp(2rem, calc(2rem + 4vw), 7rem);
+}
+
+.menu-nav-btn {
+  font-size: clamp(1.5rem, calc(0.5rem + 2vw), 3rem);
+
+  opacity: 0;
+
+  transition: 0.4s ease-in-out;
+}
+
+.menu-nav-btn:hover {
+  transform: translateX(-20px);
+}
+
+.menu-close-btn {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.2rem;
+
+  padding-block: 0.3rem;
+  padding-inline: 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #333 !important;
+}
+
+.menu-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+.nav-menu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+
+  gap: 1rem;
+}

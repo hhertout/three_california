@@ -3,7 +3,6 @@
   top: 0;
   right: 0;
   padding: 20px;
-  opacity: 0.6;
   z-index: 4;
   transition: 0.2s ease-in-out;
 }
@@ -18,6 +17,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
+  opacity: 0;
+
   z-index: 0;
   color: #f1f1f1;
   letter-spacing: 2px;
@@ -30,9 +31,36 @@
   align-items: center;
   gap: 1rem;
 }
+
 .scroll-info-indicator {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.scroll-info-indicator-up {
+  animation: move-up ease-out 1s infinite;
+}
+
+.scroll-info-indicator-down {
+  animation: move-down ease-out 1s infinite;
+}
+
+@keyframes move-up {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes move-down {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(5px);
+  }
 }

@@ -1,12 +1,18 @@
 import Effects from './components/Effects.tsx';
 import { StatsGl } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import React from 'react';
+import React, { Suspense } from 'react';
 import RouterRenderer from '../router/RouterRenderer.tsx';
 import { useDevContext } from '../context/DevContext.tsx';
+import Loader from '@scene/components/Loader.tsx';
+import { useLocationHash } from '../router/hooks.tsx';
+import { ROUTES } from '../App.tsx';
 
 const SceneApp = () => {
   const { toggleEffect } = useDevContext();
+
+  const location = useLocationHash();
+  if (location === ROUTES.ABOUT_ME) return null;
 
   return (
     <Canvas
@@ -14,13 +20,15 @@ const SceneApp = () => {
       gl={{ alpha: true, antialias: false }}
       dpr={[1, 2]}
     >
-      <RouterRenderer type={'scene'} />
+      <Suspense fallback={<Loader />}>
+        <RouterRenderer type={'scene'} />
 
-      {toggleEffect && <Effects />}
+        {toggleEffect && <Effects />}
 
-      {/* ==== Dev stuff ==== */}
-      {/*<OrbitControls />*/}
-      {import.meta.env.VITE_APP_ENV === 'dev' ? <StatsGl /> : null}
+        {/* ==== Dev stuff ==== */}
+        {/*<OrbitControls />*/}
+        {import.meta.env.VITE_APP_ENV === 'dev' ? <StatsGl /> : null}
+      </Suspense>
     </Canvas>
   );
 };

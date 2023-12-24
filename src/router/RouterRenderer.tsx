@@ -19,7 +19,12 @@ const RouterRenderer = ({ type }: Props) => {
     }
   }
 
-  return <>{type === 'html' ? <Error404 /> : null}</>;
+  return (
+    <>
+      {type === 'html' ? <Error404 /> : null}
+      {type === 'scene' ? <></> : null}
+    </>
+  );
 };
 
 export default RouterRenderer;
