@@ -2,6 +2,7 @@ import './aboutme.css';
 import Navbar, { Menu } from '@app/components/Navbar.tsx';
 import { Canvas } from '@react-three/fiber';
 import AboutMeBanner from '@scene/components/about_me/AboutMeBanner.tsx';
+import { useEffect, useState } from 'react';
 
 const menu: Array<Menu> = [
   {
@@ -27,9 +28,24 @@ const menu: Array<Menu> = [
 ];
 
 const AboutMe = () => {
+  const [isScrollUp, setIsScrollUp] = useState(false);
+
+  const handleScrollUp = (e: WheelEvent) => {
+    if (e.deltaY < 0) setIsScrollUp(true);
+    else setIsScrollUp(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener('wheel', handleScrollUp);
+
+    return () => {
+      window.removeEventListener('wheel', handleScrollUp);
+    };
+  }, []);
+
   return (
     <main className={'main'}>
-      <Navbar menu={menu} />
+      <Navbar menu={menu} isShowed={isScrollUp} />
       <section className={'banner vh-100'}>
         <div id="canvas-about-me-banner">
           <Canvas gl={{ alpha: true, antialias: false }} dpr={[1, 2]}>

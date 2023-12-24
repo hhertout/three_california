@@ -11,6 +11,7 @@ import { useNavigate } from '../../router/hooks.tsx';
 
 type Props = {
   menu: Array<Menu>;
+  isShowed: boolean;
 };
 
 export type Menu = {
@@ -19,18 +20,39 @@ export type Menu = {
   href?: string;
 };
 
-const Navbar = ({ menu }: Props) => {
+const Navbar = ({ menu, isShowed }: Props) => {
   const [active, setActive] = useState<boolean>(false);
   const modalRef = useRef(null);
+  const navRef = useRef(null);
+  const { animate } = useAnimation();
 
   const handleActiveChange = useCallback(() => {
     setActive((active) => !active);
   }, [active]);
 
+  useEffect(() => {
+    if (isShowed) {
+      animate({
+        animation: 'fade-in',
+        element: navRef.current!,
+        duration: 200,
+      });
+    } else {
+      animate({
+        animation: 'fade-out',
+        element: navRef.current!,
+        duration: 200,
+      });
+    }
+  }, [isShowed]);
+
   return (
     <>
-      <nav className={'nav zi-4'}>
-        <button onClick={handleActiveChange} className={'btn nav-btn p-2 m-1'}>
+      <nav className={'nav zi-4'} ref={navRef}>
+        <button
+          onClick={handleActiveChange}
+          className={'btn nav-btn px-2 py-1 m-1'}
+        >
           Menu
         </button>
       </nav>
@@ -89,7 +111,7 @@ const NavModal = forwardRef<HTMLDivElement, NavModalProps>((props, ref) => {
   return (
     <div
       ref={ref}
-      className={'modal-menu-open'}
+      className={'modal-menu-open zi-5'}
       style={active ? { display: 'flex' } : { display: 'none' }}
     >
       <div className={'menu-header'}>

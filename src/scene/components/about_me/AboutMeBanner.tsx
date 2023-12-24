@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Color, Mesh, Points } from 'three';
+import { Color, Group, Mesh, Points } from 'three';
 
 type Props = {
   count: number;
@@ -11,6 +11,7 @@ type Props = {
 const AboutMeBanner = ({ count, pointSize, sphereArgs }: Props) => {
   const ref = useRef<Mesh>(null);
   const pointsRef = useRef<Points>(null);
+  const groupRef = useRef<Group>(null);
 
   const particlesPosition = useMemo(() => {
     const position = new Float32Array(count * 3);
@@ -34,10 +35,8 @@ const AboutMeBanner = ({ count, pointSize, sphereArgs }: Props) => {
   }, []);
 
   useFrame(({ clock }) => {
-    const sphere = ref.current!;
-    const points = pointsRef.current!;
-    sphere.rotation.y = clock.elapsedTime * 0.1;
-    points.rotation.y = clock.elapsedTime * 0.13;
+    ref.current!.rotation.y = clock.elapsedTime * 0.1;
+    pointsRef.current!.rotation.y = clock.elapsedTime * 0.13;
   });
 
   const uniforms = useMemo(() => {
@@ -47,7 +46,7 @@ const AboutMeBanner = ({ count, pointSize, sphereArgs }: Props) => {
   }, []);
 
   return (
-    <>
+    <group ref={groupRef}>
       <mesh ref={ref} position={[0.4, 0, 3.9]}>
         <sphereGeometry args={sphereArgs} />
         <meshBasicMaterial wireframe />
@@ -68,7 +67,7 @@ const AboutMeBanner = ({ count, pointSize, sphereArgs }: Props) => {
           depthWrite={false}
         />
       </points>
-    </>
+    </group>
   );
 };
 
