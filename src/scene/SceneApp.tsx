@@ -5,9 +5,14 @@ import React, { Suspense } from 'react';
 import RouterRenderer from '../router/RouterRenderer.tsx';
 import { useDevContext } from '../context/DevContext.tsx';
 import Loader from '@scene/components/Loader.tsx';
+import { useLocationHash } from '../router/hooks.tsx';
+import { ROUTES } from '../App.tsx';
 
 const SceneApp = () => {
   const { toggleEffect } = useDevContext();
+
+  const location = useLocationHash();
+  if (location === ROUTES.ABOUT_ME) return null;
 
   return (
     <Canvas

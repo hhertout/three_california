@@ -29,6 +29,7 @@ const routes: Array<Route> = [
   {
     path: ROUTES.ABOUT_ME,
     element: <AboutMe />,
+    sceneElement: <></>,
   },
 ];
 

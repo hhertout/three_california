@@ -26,6 +26,14 @@ const DevBar = () => {
       >
         Car Overview
       </button>
+      <button
+        onClick={() => {
+          navigate('/about-me');
+        }}
+        className={'dev-btn'}
+      >
+        About me
+      </button>
     </div>
   );
 };
