@@ -35,8 +35,8 @@ const AboutMeBanner = ({ count, pointSize, sphereArgs }: Props) => {
   }, []);
 
   useFrame(({ clock }) => {
-    ref.current!.rotation.y = clock.elapsedTime * 0.1;
-    pointsRef.current!.rotation.y = clock.elapsedTime * 0.13;
+    ref.current!.rotation.y = clock.elapsedTime * 0.02;
+    pointsRef.current!.rotation.y = clock.elapsedTime * 0.1;
   });
 
   const uniforms = useMemo(() => {
@@ -46,12 +46,12 @@ const AboutMeBanner = ({ count, pointSize, sphereArgs }: Props) => {
   }, []);
 
   return (
-    <group ref={groupRef}>
-      <mesh ref={ref} position={[0.4, 0, 3.9]}>
+    <group ref={groupRef} position={[0.5, 0, 3.8]}>
+      <mesh ref={ref}>
         <sphereGeometry args={sphereArgs} />
         <meshBasicMaterial wireframe />
       </mesh>
-      <points ref={pointsRef} position={[0.4, 0, 3.9]}>
+      <points ref={pointsRef}>
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
