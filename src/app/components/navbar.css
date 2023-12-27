@@ -14,8 +14,16 @@
 .nav-btn {
   height: 100%;
 
+  background-color: #f1f1f1 !important;
+
+  padding-inline: 0.3rem;
+
+  border: 1px solid black !important;
+  border-radius: 6px;
+
   font-family: 'Cinzel Decorative', serif;
   font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .modal-menu-open {

@@ -2,6 +2,9 @@ import './aboutme.css';
 import Navbar, { Menu } from '@app/components/Navbar.tsx';
 import { Canvas } from '@react-three/fiber';
 import AboutMeBanner from '@scene/components/about_me/AboutMeBanner.tsx';
+import { useEffect, useState } from 'react';
+import ProjectDrawer from '@app/components/ProjectDrawer.tsx';
+import { projectData } from '@app/data/ProjectData.tsx';
 
 const menu: Array<Menu> = [
   {
@@ -27,9 +30,24 @@ const menu: Array<Menu> = [
 ];
 
 const AboutMe = () => {
+  const [isScrollUp, setIsScrollUp] = useState(false);
+
+  const handleScrollUp = (e: WheelEvent) => {
+    if (e.deltaY < 0) setIsScrollUp(true);
+    else setIsScrollUp(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener('wheel', handleScrollUp);
+
+    return () => {
+      window.removeEventListener('wheel', handleScrollUp);
+    };
+  }, []);
+
   return (
     <main className={'main'}>
-      <Navbar menu={menu} />
+      <Navbar menu={menu} isShowed={isScrollUp} />
       <section className={'banner vh-100'}>
         <div id="canvas-about-me-banner">
           <Canvas gl={{ alpha: true, antialias: false }} dpr={[1, 2]}>
@@ -151,99 +169,12 @@ const AboutMe = () => {
 
       <section id={'project'}>
         <div className={'project-hero-banner'}>
-          <h2>Project</h2>
+          <h2>Projects</h2>
         </div>
         <div className={'project-container p-5'}>
-          <div className={'project-wrapper'}>
-            <h3>Externatic rework</h3>
-            <h4>Presentation</h4>
-            <article>
-              <div>
-                <div>
-                  My first large professional project made in 2022-2023.
-                </div>
-
-                <div>
-                  Externatic is an innovative french recruitment platform
-                  committed to connecting the brightest talents with companies
-                  in search of exceptional skills. This platform offers a
-                  personalized approach to recruitment by utilizing cutting-edge
-                  technological tools to identify, assess, and attract the best
-                  profiles. By combining human expertise and technological
-                  innovation, Externatic streamlines the recruitment process,
-                  providing companies access to a pool of qualified talents
-                  while offering candidates enriching professional opportunities
-                  perfectly tailored to their skills and aspirations.
-                </div>
-              </div>
-            </article>
-          </div>
-          <div className={'project-wrapper'}>
-            <h3>Eco-Challenge</h3>
-
-            <h4>Presentation</h4>
-            <article>
-              <div>
-                The environmental issue is at the forefront of current affairs,
-                and everyone can take action in their own way to reduce its
-                impact and preserve our planet. The project is built on the
-                desire to develop a platform that launches "eco-gesture"
-                challenges within a group.
-              </div>
-
-              <div>
-                Eco-Challenge has been developed with this aim in mind to meet
-                this demand. It's a french community platform designed to
-                promote eco-friendly actions where individuals can challenge
-                themselves to earn points and complete various challenges.
-              </div>
-
-              <div>
-                The platform is also open to businesses, allowing them to create
-                customized eco-tasks and challenges for their employees.
-              </div>
-
-              <div>
-                The goal is to create a smooth and engaging user experience. The
-                platform will enable users to register, create groups,
-                participate in challenges, and validate eco-tasks with just a
-                few clicks.
-              </div>
-            </article>
-          </div>
-          <div className={'project-wrapper'}>
-            <h3>Eco-Challenge | Mobile App</h3>
-
-            <h4>Presentation</h4>
-            <article>
-              <div>
-                The environmental issue is at the forefront of current affairs,
-                and everyone can take action in their own way to reduce its
-                impact and preserve our planet. The project is built on the
-                desire to develop a platform that launches "eco-gesture"
-                challenges within a group.
-              </div>
-
-              <div>
-                Eco-Challenge has been developed with this aim in mind to meet
-                this demand. It's a french community platform designed to
-                promote eco-friendly actions where individuals can challenge
-                themselves to earn points and complete various challenges.
-              </div>
-
-              <div>
-                The platform is also open to businesses, allowing them to create
-                customized eco-tasks and challenges for their employees.
-              </div>
-
-              <div>
-                The goal is to create a smooth and engaging user experience. The
-                platform will enable users to register, create groups,
-                participate in challenges, and validate eco-tasks with just a
-                few clicks.
-              </div>
-            </article>
-          </div>
+          {projectData.map((project, index) => {
+            return <ProjectDrawer key={index} {...project} />;
+          })}
         </div>
       </section>
     </main>
